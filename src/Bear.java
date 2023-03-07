@@ -1,18 +1,40 @@
+/**
+ * The Bear class represents a bear and extends the Animal class.
+ */
 public class Bear extends Animal {
+    /** The sleep state of the bear. */
     private String sleep;
+    /**
+     * Constructs a Bear with the given weight and season.
+     *
+     * @param weight The weight of the bear.
+     * @param season The current season of the bear.
+     */
     Bear(int weight, Season season) {
         super(weight,season,Color.BROWN);
         this.sleep=checkSleepSeason(this.getCurrentSeason());
     }
+    /**
+     *
+     * @return A String representation of the bear.
+     */
     @Override
     public String toString() {
         return "Bear. " + this.sleep + super.TOString();
     }
+    /**
+     * Changes the current season of the bear to the next one in the Season enum and updates its weight and sleep state.
+     */
     @Override
     public void changeSeason() {
         super.changeSeason();
         checkSeason(this.getCurrentSeason());
     }
+    /**
+     * Updates the weight and sleep state of the bear based on the current season.
+     *
+     * @param season The current season of the bear.
+     */
     public void checkSeason(Season season) {
         switch (season) {
             case FALL:
@@ -35,6 +57,12 @@ public class Bear extends Animal {
                 break;
         }
     }
+    /**
+     * Returns the sleep state of the bear based on the current season.
+     *
+     * @param season The current season of the bear.
+     * @return The sleep state of the bear.
+     */
     public String checkSleepSeason(Season season) {
         switch (season) {
             case FALL:
